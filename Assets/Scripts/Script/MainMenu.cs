@@ -220,7 +220,7 @@ public class MainMenu : Singleton<MainMenu>
         {
             GameObject g = Instantiate(m_fullbodycellPrefab, m_FullbodyParent);
             FullCellController skinController =g.GetComponent<FullCellController>();
-            var sprite = Resources.Load<Sprite>($"textures/body_shirt/{i}" );
+            var sprite = Resources.Load<Sprite>($"textures/body_shirt/{i}_icon" );
             int x = i-1;
              g.GetComponent<Button>().onClick.AddListener(() =>
              {
@@ -237,7 +237,7 @@ public class MainMenu : Singleton<MainMenu>
         {
             GameObject g = Instantiate(m_fullbodycellPrefab, m_FullbodyParent);
             FullCellController skinController =g.GetComponent<FullCellController>();
-            var sprite = Resources.Load<Sprite>($"textures/body_shirt/{i}" );
+            var sprite = Resources.Load<Sprite>($"textures/body_shirt/{i}_icon" );
             int x = i-1;
             g.GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -255,7 +255,7 @@ public class MainMenu : Singleton<MainMenu>
         {
             GameObject g = Instantiate(m_fullbodycellPrefab, m_FullbodyParent);
             FullCellController skinController =g.GetComponent<FullCellController>();
-            var sprite = Resources.Load<Sprite>($"textures/body_pant/{i}");
+            var sprite = Resources.Load<Sprite>($"textures/body_pant/{i}_icon");
             int x = i-1;
             g.GetComponent<Button>().onClick.AddListener(() =>
             {
