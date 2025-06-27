@@ -261,6 +261,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     private void CheckAndSetPanel()
     {
         int purchased = PlayerPrefs.GetInt("Purchased", 0);
-        MenuPanelController.Instance.ActivePanel(purchased == 1 ? activeIndx : inactiveIndx);
+        ScreenManager.Instance.ActivePanel(purchased == 1 ? activeIndx : inactiveIndx);
     }
 }

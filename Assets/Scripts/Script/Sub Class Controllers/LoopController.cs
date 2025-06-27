@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -15,7 +13,6 @@ public class LoopController : Singleton<LoopController>
     
     public Transform m_catalogPatternParent;
     
-    //[HideInInspector]
     public List<GameObject> PatternList;
     
     public Sprite CurrentTexture;
@@ -23,8 +20,9 @@ public class LoopController : Singleton<LoopController>
     public int CurrentCatalog;
     public int CurrentPattern;
 
-    public List<ThemeController> CatalogBtnList;
-    public void Awake()
+    public List<ItemSelector> CatalogBtnList;
+
+    protected override void Awake()
     {
         ShowCatalog();
     }
@@ -38,7 +36,7 @@ public class LoopController : Singleton<LoopController>
                 GameObject g = Instantiate(m_catalogPrefab, m_catalogParent);
                 int x = i;
                 g.GetComponent<Button>().onClick.AddListener(delegate { ShowCatalogPattern(x); });
-                CatalogBtnList.Add(g.GetComponent<ThemeController>());
+                CatalogBtnList.Add(g.GetComponent<ItemSelector>());
                 Text text= g.transform.GetChild(1).GetComponent<Text>();
                 text.text = textureGroups[i].GroupName;
             }
@@ -46,8 +44,8 @@ public class LoopController : Singleton<LoopController>
 
         ShowCatalogPattern(0);
     }
-    
-    public void ShowCatalogPattern(int index)
+
+    private void ShowCatalogPattern(int index)
     {
         
         CurrentCatalog = index;
@@ -59,36 +57,34 @@ public class LoopController : Singleton<LoopController>
             g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
             Image img = g.transform.GetChild(0).GetComponent<Image>();
             img.sprite = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
+            g.GetComponent<PatternButton>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
+            g.GetComponent<PatternButton>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
             PatternList.Add(g);
         }
-        CatalogBtnList[CurrentCatalog].SelectedState(); 
+        CatalogBtnList[CurrentCatalog].Selected(); 
     }
-
-   
 
     public void ApplyTexture(int index)
     {
         CurrentPattern = index;
         CurrentTexture = textureGroups[CurrentCatalog].Texture[CurrentPattern];
         CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
-        BodyController.Instance.CurrentTexture = CurrentTexture;
-        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
-        BodyController.Instance.CurrentColor = Color.white;
+        RobloxBodyHandler.Instance.CurrentTexture = CurrentTexture;
+        RobloxBodyHandler.Instance.CurrentRawTexture = CurrentRawTexture;
+        RobloxBodyHandler.Instance.CurrentColor = Color.white;
 
     }
 
 
-    public void ClearPatternList()
+    private void ClearPatternList()
     {
-        for (int i = 0; i < CatalogBtnList.Count; i++)
+        foreach (var t in CatalogBtnList)
         {
-            CatalogBtnList[i].NormalState(); 
+            t.UnSelected();
         }
-        for (int i = 0; i < PatternList.Count; i++)
+        foreach (var t in PatternList)
         {
-            Destroy(PatternList[i]);
+            Destroy(t);
         }
         PatternList.Clear();
         
@@ -104,31 +100,26 @@ public class LoopController : Singleton<LoopController>
             return;
         }
 
-        // Get all folders inside "Resources/textures"
         string[] folders = Directory.GetDirectories(resourcesPath);
 
         foreach (string folder in folders)
         {
-            // Extract the folder name (e.g., "Group1")
             string folderName = Path.GetFileName(folder);
 
-            // Create a new TextureGroup with the folder name as GroupName
             TextureGroup group = new TextureGroup(folderName);
 
-            // Load all textures from this folder
             Sprite[] textures = Resources.LoadAll<Sprite>($"stickers/{folderName}");
             if (textures.Length > 0)
             {
                 for (int i = 0; i < textures.Length; i++)
                 {
-                    if (i % 2 != 0) // Even index
+                    if (i % 2 != 0)
                     {
                         if(group.Texture.Count <=10)
-                        group.Texture.Add(textures[i]);
+                            group.Texture.Add(textures[i]);
                     }
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
             else
@@ -140,19 +131,13 @@ public class LoopController : Singleton<LoopController>
             Texture[] texture = Resources.LoadAll<Texture>($"textures/{folderName}");
             if (texture.Length > 0)
             {
-                for (int i = 0; i < texture.Length; i++)
+                foreach (var t in texture)
                 {
-                    // if (i % 2 == 0) // Even index
-                    // {
-                    //     if(group.RawTexture.Count <=20)
-                            group.RawTexture.Add(texture[i]);
-               //     }
+                    group.RawTexture.Add(t);
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
-            // Add the group to the list
             textureGroups.Add(group);
         }
     }

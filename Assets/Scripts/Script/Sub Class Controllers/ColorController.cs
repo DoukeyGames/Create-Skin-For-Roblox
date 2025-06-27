@@ -26,7 +26,7 @@ public class ColorController : Singleton<ColorController>
     public int CurrentCatalog;
     public int CurrentPattern;
     public Color Selected, UnSelected;
-    public List<ThemeController> CatalogBtnList;
+    public List<ItemSelector> CatalogBtnList;
 
     public void Awake()
     {
@@ -42,7 +42,7 @@ public class ColorController : Singleton<ColorController>
                 GameObject g = Instantiate(m_catalogPrefab, m_catalogParent);
                 int x = i;
                 g.GetComponent<Button>().onClick.AddListener(delegate { ShowCatalogPattern(x); });
-                CatalogBtnList.Add(g.GetComponent<ThemeController>());
+                CatalogBtnList.Add(g.GetComponent<ItemSelector>());
                 Text text= g.transform.GetChild(1).GetComponent<Text>();
                 text.text = textureGroups[i].GroupName;
             }
@@ -65,7 +65,7 @@ public class ColorController : Singleton<ColorController>
             img.sprite = textureGroups[CurrentCatalog].Texture[i];
             PatternList.Add(g);
         }
-        CatalogBtnList[CurrentCatalog].SelectedState(); 
+        CatalogBtnList[CurrentCatalog].Selected(); 
     }
 
    
@@ -76,9 +76,9 @@ public class ColorController : Singleton<ColorController>
         CurrentTexture = textureGroups[CurrentCatalog].Texture[CurrentPattern];
         CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
 
-        BodyController.Instance.CurrentTexture = CurrentTexture;
-        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
-        BodyController.Instance.CurrentColor = Color.white;
+        RobloxBodyHandler.Instance.CurrentTexture = CurrentTexture;
+        RobloxBodyHandler.Instance.CurrentRawTexture = CurrentRawTexture;
+        RobloxBodyHandler.Instance.CurrentColor = Color.white;
         SelectedPattern(index);
     }
 
@@ -97,7 +97,7 @@ public class ColorController : Singleton<ColorController>
     {
         for (int i = 0; i < CatalogBtnList.Count; i++)
         {
-            CatalogBtnList[i].NormalState(); 
+            CatalogBtnList[i].UnSelected(); 
         }
         for (int i = 0; i < PatternList.Count; i++)
         {

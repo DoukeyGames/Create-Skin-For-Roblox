@@ -33,7 +33,7 @@ public class ShapeController : Singleton<ShapeController>
     public int CurrentPattern;
 
     public Color Selected, UnSelected;
-    public List<ThemeController> CatalogBtnList;
+    public List<ItemSelector> CatalogBtnList;
     public void Awake()
     {
         ShowCatalog();
@@ -81,8 +81,8 @@ public class ShapeController : Singleton<ShapeController>
             g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
             Image img = g.transform.GetChild(0).GetComponent<Image>();
             img.sprite = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
+            g.GetComponent<PatternButton>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
+            g.GetComponent<PatternButton>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
             PatternList.Add(g);
         }
 //        CatalogBtnList[CurrentCatalog].SelectedState(); 
@@ -128,12 +128,12 @@ public class ShapeController : Singleton<ShapeController>
         CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
         
       
-        PatternList[index].GetComponent<PatternBtn>()._stickerHandler.currentSticker.GetComponent<Image>().color = CurrentColor;
-       PatternList[index].GetComponent<PatternBtn>()._stickerHandler.currentSticker.GetComponent<UIDragAndSnap>().decal.GetComponent<Image>().color = CurrentColor;//.GetComponent<CwPaintDecal>().Color = CurrentColor;
+        PatternList[index].GetComponent<PatternButton>()._stickerHandler.currentSticker.GetComponent<Image>().color = CurrentColor;
+       PatternList[index].GetComponent<PatternButton>()._stickerHandler.currentSticker.GetComponent<StickerDragger>().decal.GetComponent<Image>().color = CurrentColor;//.GetComponent<CwPaintDecal>().Color = CurrentColor;
         
-        BodyController.Instance.CurrentTexture = CurrentTexture;
-        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
-        BodyController.Instance.CurrentColor = Color.white;
+        RobloxBodyHandler.Instance.CurrentTexture = CurrentTexture;
+        RobloxBodyHandler.Instance.CurrentRawTexture = CurrentRawTexture;
+        RobloxBodyHandler.Instance.CurrentColor = Color.white;
 
         SelectedPattern(index);
     }
@@ -153,7 +153,7 @@ public class ShapeController : Singleton<ShapeController>
     {
         for (int i = 0; i < CatalogBtnList.Count; i++)
         {
-            CatalogBtnList[i].NormalState(); 
+            CatalogBtnList[i].UnSelected(); 
         }
         for (int i = 0; i < PatternList.Count; i++)
         {

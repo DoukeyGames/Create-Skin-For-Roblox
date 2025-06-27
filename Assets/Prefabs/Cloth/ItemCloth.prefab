@@ -382,7 +382,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6374170373559491769}
         m_TargetAssemblyTypeName: PatternBtn, Assembly-CSharp
-        m_MethodName: setSticker
+        m_MethodName: ApplySticker
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

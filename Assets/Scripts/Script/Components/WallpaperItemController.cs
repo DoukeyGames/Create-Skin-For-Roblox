@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,6 +18,14 @@ public class WallpaperItemController : MonoBehaviour
     private void Start()
     {
         downloadButton.onClick.AddListener(Download);
+    }
+
+    private void OnEnable()
+    {
+        if(wallpaperData != null)
+        {
+            SetData(wallpaperData);
+        }
     }
 
     public void SetData(WallpaperData data)
@@ -85,14 +94,14 @@ public class WallpaperItemController : MonoBehaviour
                 if (success)
                 {
                     Debug.Log("Image saved successfully to: " + path);
-                    MenuPanelController.Instance.notification.Show();
-                    MenuPanelController.Instance.notification.SetNotificationText("Image Saved", "Image saved successfully to gallery");
+                    ScreenManager.Instance.notification.Show();
+                    ScreenManager.Instance.notification.SetNotificationText("Image Saved", "Image saved successfully to gallery");
                 }
                 else
                 {
                     Debug.LogError("Failed to save image to gallery.");
-                    MenuPanelController.Instance.notification.Show();
-                    MenuPanelController.Instance.notification.SetNotificationText("Save Failed", "Failed to save image to gallery");
+                    ScreenManager.Instance.notification.Show();
+                    ScreenManager.Instance.notification.SetNotificationText("Save Failed", "Failed to save image to gallery");
                 }
 
                 Dictionary<string, string> saveParams = new Dictionary<string, string>
@@ -108,8 +117,8 @@ public class WallpaperItemController : MonoBehaviour
         if (permission == NativeGallery.Permission.Denied)
         {
             isDownloading = false;
-            MenuPanelController.Instance.notification.Show();
-            MenuPanelController.Instance.notification.SetNotificationText("Permission Denied", "Please go to <b>settings</b> and allow gallery access to save images");
+            ScreenManager.Instance.notification.Show();
+            ScreenManager.Instance.notification.SetNotificationText("Permission Denied", "Please go to <b>settings</b> and allow gallery access to save images");
 
             // Log analytics for permission denied
             Dictionary<string, string> permissionParams = new Dictionary<string, string>
@@ -123,8 +132,8 @@ public class WallpaperItemController : MonoBehaviour
         else if (permission == NativeGallery.Permission.ShouldAsk)
         {
             isDownloading = false;
-            MenuPanelController.Instance.notification.Show();
-            MenuPanelController.Instance.notification.SetNotificationText("Permission Required", "Gallery access is required to save images. Please try again and allow access.");
+            ScreenManager.Instance.notification.Show();
+            ScreenManager.Instance.notification.SetNotificationText("Permission Required", "Gallery access is required to save images. Please try again and allow access.");
 
             // Log analytics for permission should ask
             Dictionary<string, string> permissionParams = new Dictionary<string, string>

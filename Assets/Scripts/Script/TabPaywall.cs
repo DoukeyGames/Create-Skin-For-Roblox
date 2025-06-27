@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using TMPro;
 
 public class TabPaywall : TabBase
@@ -14,26 +12,22 @@ public class TabPaywall : TabBase
     [SerializeField] private TMP_Text freeTrialText, trialSafetyText;
 
     [SerializeField] private Toggle toggle;
-    [SerializeField] PurchasesListener purchasesListener;
 
-    private const string PrivacyTextUrl = "https://gravloom.com/privacy-policy-2/";
-    private const string TermOfConditionUrl = "https://gravloom.com/terms-of-use-2/";
+    private const string _privacyTextUrl = "https://gravloom.com/privacy-policy-2/";
+    private const string _permOfConditionUrl = "https://gravloom.com/terms-of-use-2/";
 
     private void Start()
     {
         nextBtn.interactable = false;
         nextBtn.onClick.AddListener(OnNextButtonClick);
-        privacyBtn.onClick.AddListener(() => OpenURL(PrivacyTextUrl));
-        tocBtn.onClick.AddListener(() => OpenURL(TermOfConditionUrl));
-        restoreBtn.onClick.AddListener(() => RestorePurchases());
+        privacyBtn.onClick.AddListener(() => OpenURL(_privacyTextUrl));
+        tocBtn.onClick.AddListener(() => OpenURL(_permOfConditionUrl));
+        restoreBtn.onClick.AddListener(RestorePurchases);
 
-        // Set initial selection
         SetDefaultSelection();
 
-        // Listen for toggle changes
         toggle.onValueChanged.AddListener(OnToggleChanged);
 
-        // Track paywall view with AppsFlyer
         if (AnalyticsManager.Instance != null)
         {
             AnalyticsManager.Instance.TrackPaywallView("tab_paywall", "app_flow");
@@ -188,7 +182,6 @@ public class TabPaywall : TabBase
 
     private void OpenURL(string url)
     {
-        // Track URL opening with AppsFlyer
         if (AnalyticsManager.Instance != null)
         {
             string urlType = url.Contains("privacy") ? "privacy_policy" : "terms_of_service";
