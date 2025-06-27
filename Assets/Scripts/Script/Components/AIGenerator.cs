@@ -39,6 +39,7 @@ public class AIGenerator : MonoBehaviour
         isLoading = false;
         isDownloading = false;
         isSharing = false;
+        loadingText.text = "0%";
         StopAllCoroutines();
         if(generateCoroutine != null)
         {
@@ -331,6 +332,7 @@ public class AIGenerator : MonoBehaviour
     IEnumerator RefreshToken()
     {
         string refreshUrl = apiUrl + "device-auth/refresh";
+        refresh_token = PlayerPrefs.GetString("refresh_token", "");
         string jsonFinal = JsonUtility.ToJson(new { refresh_token = refresh_token });
 
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonFinal);

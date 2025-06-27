@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 5173600431235870982}
   - component: {fileID: 3538233213232991912}
   m_Layer: 5
-  m_Name: Sticker Btn
+  m_Name: StickerItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

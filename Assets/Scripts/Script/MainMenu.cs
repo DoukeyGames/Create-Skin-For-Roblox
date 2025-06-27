@@ -131,7 +131,7 @@ public class MainMenu : Singleton<MainMenu>
         {
             GameObject g = Instantiate(m_cellPrefab, m_ShirtParent);
             CellItemController cellItemController =g.GetComponent<CellItemController>();
-            var sprite = Resources.Load<Sprite>("masks/1.shirt/mask"+i+"/preview_img");
+            var sprite = Resources.Load<Sprite>("masks/1_shirt/mask_"+i+"/preview_img_icon");
             int x = i;
             g.GetComponent<Button>().onClick.AddListener(delegate { SetModel(x); });
             cellItemController.m_StyleImg.sprite = sprite;
@@ -150,7 +150,7 @@ public class MainMenu : Singleton<MainMenu>
         {
             GameObject g = Instantiate(m_cellPrefab, m_PantParent);
             CellItemController cellItemController =g.GetComponent<CellItemController>();
-            var sprite = Resources.Load<Sprite>("masks/2.pants/mask"+i+"/preview_img");
+            var sprite = Resources.Load<Sprite>("masks/2_pants/mask_"+i+"/preview_img_icon");
             int x = i;
             g.GetComponent<Button>().onClick.AddListener(delegate { SetModel(x); });
             cellItemController.m_StyleImg.sprite = sprite;

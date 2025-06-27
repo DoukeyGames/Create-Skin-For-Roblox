@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3005689617479716962}
   - component: {fileID: 9113143696168993411}
   m_Layer: 5
-  m_Name: Catalog Btn
+  m_Name: TextureLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

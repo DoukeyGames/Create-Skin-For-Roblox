@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4918852884388885602}
   - component: {fileID: 7978996477496972054}
   m_Layer: 5
-  m_Name: Group slider
+  m_Name: StickerSlide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

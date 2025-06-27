@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2887516696430701588}
   - component: {fileID: 6749588301432329975}
   m_Layer: 5
-  m_Name: sticker example
+  m_Name: StickerItemEx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
