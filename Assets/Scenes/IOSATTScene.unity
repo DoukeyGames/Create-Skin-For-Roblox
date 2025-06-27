@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1666735709}
   - component: {fileID: 1666735708}
   m_Layer: 0
-  m_Name: iOSATT_Service
+  m_Name: ATT_Service
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
