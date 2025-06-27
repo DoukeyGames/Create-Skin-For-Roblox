@@ -1,0 +1,899 @@
+fileFormatVersion: 2
+guid: 12cfeb7fb67064649ba640d772d00be4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Roblox Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1908
+        width: 109
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47969cb447dd2c4784b2a13e197b257
+      internalID: -70675342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1894
+        width: 1039
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ec9137232d5ce4db9b6567d18aeb1b
+      internalID: 739666944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1837
+        width: 189
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e008ac0b29f31e479c9f9371fcd512c
+      internalID: -1083374583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_3
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1350
+        width: 347
+        height: 678
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d8b93a273508247aa7746281acecf9
+      internalID: 1211595900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1766
+        width: 109
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bbae56b5481ca43ab6c270657c1616
+      internalID: 1490059847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_5
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1726
+        width: 777
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964a39edecabe5b46809dd40647cc64f
+      internalID: 1888705603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1614
+        width: 123
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765eb37f86f0bb647a8379ab8a312bfb
+      internalID: -487343368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1554
+        width: 778
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06c77b8387a88b4d99a670df42bf86b
+      internalID: 16855618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1481
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4cf3966e67135418eca32c84b3069b
+      internalID: 996230601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1386
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6c45ad61faa6a4ea0ca15e79d382e5
+      internalID: -1776928350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1234
+        width: 97
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3e71a104061ab469a9da6f95724906
+      internalID: 382978442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_21
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1227
+        width: 949
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05c33ae7641ba64cac432bc57f8e408
+      internalID: -1300574233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_29
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 1139
+        width: 300
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb66d4585d252444bd138b4455f3079
+      internalID: -592443113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_39
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1077
+        width: 104
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0e5ec6009758b41813298baa7ea5e3
+      internalID: -334658861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_40
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1052
+        width: 763
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297fdc55872182c478632045930fb201
+      internalID: -1124536016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_41
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 933
+        width: 300
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bec52a05a091f40948108d539abd5b
+      internalID: -961167836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_42
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 932
+        width: 117
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e04a921ad285bb40b59e6d43a99a720
+      internalID: 471985908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_43
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 905
+        width: 788
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d7097be0daf3c4c91f43415edc0ea1
+      internalID: 821454261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_44
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 779
+        width: 117
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7cc798127e794d4fbd846e531014093
+      internalID: 486492246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_45
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 654
+        width: 255
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70244d3a750a697418f23e07957cdb8a
+      internalID: 789555744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_46
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 633
+        width: 112
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e9c4ca2820a9a49885213f0989f358
+      internalID: -585136025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_48
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 495
+        width: 112
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141875b7bfcfef54a88ba8229b546f10
+      internalID: -790068963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_49
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 592
+        width: 388
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a2c7cd165bf30439e1293af2be0204
+      internalID: -2023301394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_50
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 535
+        width: 391
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f013d50ca28e6c540afe6439f4865045
+      internalID: 1205185086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_51
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 383
+        width: 88
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d8b3cd73eb51347b5c91949dfd6f92
+      internalID: 959818304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_53
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 297
+        width: 118
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ab6090a881edf44b9176d3358a3c49
+      internalID: 2013673001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_61
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 206
+        width: 83
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc2097136e12a94a9247c38b56334b8
+      internalID: -11986788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_62
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 116
+        width: 71
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f1b3e8ca91e6d4497c8c5ac80b6a01
+      internalID: -628761040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_64
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 20
+        width: 105
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aeee6d8a9843a440bd7ac7f256a1adc
+      internalID: 1097892135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 20
+        width: 216
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2333959c957f8418bfae6c420e4170
+      internalID: 830663286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 13
+        width: 177
+        height: 347
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f73728ce56cb84cabcc07eecfe6b21
+      internalID: 942547168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 14
+        width: 234
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9388689ed991b1f4087c9b78864d46cd
+      internalID: 260474070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roblox Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1373
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c712e39fdd40edb40a46024d44482a9f
+      internalID: -127030591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Roblox Sprites_0: -70675342
+      Roblox Sprites_1: 739666944
+      Roblox Sprites_10: 942547168
+      Roblox Sprites_11: 260474070
+      Roblox Sprites_12: -127030591
+      Roblox Sprites_13: 1183062310
+      Roblox Sprites_14: 963873330
+      Roblox Sprites_15: -1776928350
+      Roblox Sprites_16: 1976357662
+      Roblox Sprites_17: 382978442
+      Roblox Sprites_18: -946497692
+      Roblox Sprites_19: 1104547796
+      Roblox Sprites_2: -1083374583
+      Roblox Sprites_20: -2118783480
+      Roblox Sprites_21: -1300574233
+      Roblox Sprites_22: 785067382
+      Roblox Sprites_23: -178190565
+      Roblox Sprites_24: -96169646
+      Roblox Sprites_25: 1178982384
+      Roblox Sprites_26: -1172672688
+      Roblox Sprites_27: 1014509609
+      Roblox Sprites_28: -245904265
+      Roblox Sprites_29: -592443113
+      Roblox Sprites_3: 1211595900
+      Roblox Sprites_30: 234965555
+      Roblox Sprites_31: 1783208474
+      Roblox Sprites_32: -1263221605
+      Roblox Sprites_33: -1542077588
+      Roblox Sprites_34: 1530208921
+      Roblox Sprites_35: 1242386153
+      Roblox Sprites_36: -1250059826
+      Roblox Sprites_37: 1511529245
+      Roblox Sprites_38: 2092670188
+      Roblox Sprites_39: -334658861
+      Roblox Sprites_4: 1490059847
+      Roblox Sprites_40: -1124536016
+      Roblox Sprites_41: -961167836
+      Roblox Sprites_42: 471985908
+      Roblox Sprites_43: 821454261
+      Roblox Sprites_44: 486492246
+      Roblox Sprites_45: 789555744
+      Roblox Sprites_46: -585136025
+      Roblox Sprites_47: 1974787796
+      Roblox Sprites_48: -790068963
+      Roblox Sprites_49: -2023301394
+      Roblox Sprites_5: 1888705603
+      Roblox Sprites_50: 1205185086
+      Roblox Sprites_51: 959818304
+      Roblox Sprites_52: -1937208473
+      Roblox Sprites_53: 2013673001
+      Roblox Sprites_54: -157599604
+      Roblox Sprites_55: 1081109476
+      Roblox Sprites_56: 1755960956
+      Roblox Sprites_57: 26792540
+      Roblox Sprites_58: -839898735
+      Roblox Sprites_59: 342195763
+      Roblox Sprites_6: -487343368
+      Roblox Sprites_60: -2141161055
+      Roblox Sprites_61: -11986788
+      Roblox Sprites_62: -628761040
+      Roblox Sprites_63: -459330831
+      Roblox Sprites_64: 1097892135
+      Roblox Sprites_65: 740719626
+      Roblox Sprites_7: 16855618
+      Roblox Sprites_8: 996230601
+      Roblox Sprites_9: 830663286
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

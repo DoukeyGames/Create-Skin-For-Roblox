@@ -1,0 +1,232 @@
+
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using PaintIn3D;
+using UnityEngine.UI;
+
+public class ShapeController : Singleton<ShapeController>
+{
+    public List<TextureGroup> textureGroups = new List<TextureGroup>();
+
+    public GameObject m_catalogPrefab;
+    
+    public Transform m_catalogParent;
+    
+    
+    public GameObject m_catalogPatternPrefab;
+    
+    public Transform m_catalogPatternParent;
+    
+    //[HideInInspector]
+    public List<GameObject> PatternList;
+    public List<GameObject> ColorList;
+    
+    public List<Color> textureColor = new List<Color>();
+    public Color CurrentColor;
+    
+    public Sprite CurrentTexture;
+    public Texture CurrentRawTexture;
+   
+    public int CurrentCatalog;
+    public int CurrentPattern;
+
+    public Color Selected, UnSelected;
+    public List<ThemeController> CatalogBtnList;
+    public void Awake()
+    {
+        ShowCatalog();
+    }
+
+    public void ShowCatalog()
+    {
+        for (int i = 0; i < textureColor.Count; i++)
+        {
+            
+            GameObject g = Instantiate(m_catalogPrefab, m_catalogParent);
+            int x = i;
+            g.GetComponent<Button>().onClick.AddListener(delegate { ChangeColor(textureColor[x]); });
+            g.transform.GetChild(0).GetComponent<Image>().color = textureColor[x];
+            ColorList.Add(g);
+            //CatalogBtnList.Add(g.GetComponent<ThemeController>());
+            Text text= g.transform.GetChild(1).GetComponent<Text>();
+            text.color = new Color(1, 1, 1, 0);
+
+        }
+
+        ShowCatalogPattern(0);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        for (int i = 0; i < PatternList.Count; i++)
+        {
+            Image img =  PatternList[i].transform.GetChild(0).GetComponent<Image>();
+            CurrentColor = color;
+            img.color = color;
+        }
+    }
+
+
+    public void ShowCatalogPattern(int index)
+    {
+        
+        CurrentCatalog = index;
+        ClearPatternList();
+        for (int i = 0; i < textureGroups[CurrentCatalog].Texture.Count; i++)
+        {
+            GameObject g = Instantiate(m_catalogPatternPrefab, m_catalogPatternParent);
+            int x = i;
+            g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
+            Image img = g.transform.GetChild(0).GetComponent<Image>();
+            img.sprite = textureGroups[CurrentCatalog].Texture[i];
+            g.GetComponent<PatternBtn>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
+            g.GetComponent<PatternBtn>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
+            PatternList.Add(g);
+        }
+//        CatalogBtnList[CurrentCatalog].SelectedState(); 
+    }
+    // public void ShowCatalog()
+    // {
+    //     for (int i = 0; i < textureGroups[CurrentCatalog].Texture.Count; i++)
+    //     {
+    //         GameObject g = Instantiate(m_catalogPatternPrefab, m_catalogPatternParent);
+    //         int x = i;
+    //         g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
+    //         Image img = g.transform.GetChild(0).GetComponent<Image>();
+    //         img.sprite = textureGroups[CurrentCatalog].Texture[i];
+    //         g.GetComponent<PatternBtn>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
+    //         g.GetComponent<PatternBtn>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
+    //         PatternList.Add(g);
+    //     }
+    // }
+    
+    // public void ShowCatalogPattern(int index)
+    // {
+    //     
+    //     CurrentCatalog = index;
+    //     ClearPatternList();
+    //     for (int i = 0; i < textureGroups[CurrentCatalog].Texture.Count; i++)
+    //     {
+    //         GameObject g = Instantiate(m_catalogPatternPrefab, m_catalogPatternParent);
+    //         int x = i;
+    //         g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
+    //         Image img = g.transform.GetChild(0).GetComponent<Image>();
+    //         img.sprite = textureGroups[CurrentCatalog].Texture[i];
+    //         PatternList.Add(g);
+    //     }
+    //     CatalogBtnList[CurrentCatalog].SelectedState(); 
+    // }
+
+   
+
+    public void ApplyTexture(int index)
+    {
+        CurrentPattern = index;
+        CurrentTexture = textureGroups[CurrentCatalog].Texture[CurrentPattern];
+        CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
+        
+      
+        PatternList[index].GetComponent<PatternBtn>()._stickerHandler.currentSticker.GetComponent<Image>().color = CurrentColor;
+       PatternList[index].GetComponent<PatternBtn>()._stickerHandler.currentSticker.GetComponent<UIDragAndSnap>().decal.GetComponent<Image>().color = CurrentColor;//.GetComponent<CwPaintDecal>().Color = CurrentColor;
+        
+        BodyController.Instance.CurrentTexture = CurrentTexture;
+        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
+        BodyController.Instance.CurrentColor = Color.white;
+
+        SelectedPattern(index);
+    }
+
+    public void SelectedPattern(int index)
+    {
+        foreach (var UPPER in PatternList)
+        {
+            UPPER.transform.GetChild(2).GetComponent<Image>().color =UnSelected;
+        }
+        PatternList[index].transform.GetChild(2).GetComponent<Image>().color =Selected;
+
+    }
+
+
+    public void ClearPatternList()
+    {
+        for (int i = 0; i < CatalogBtnList.Count; i++)
+        {
+            CatalogBtnList[i].NormalState(); 
+        }
+        for (int i = 0; i < PatternList.Count; i++)
+        {
+            Destroy(PatternList[i]);
+        }
+        PatternList.Clear();
+        
+        
+    }
+    [ContextMenu("Load Textures")]
+    private void LoadFoldersAndTextures()
+    {
+        string resourcesPath = Path.Combine(Application.dataPath, "Resources/stickers");
+        if (!Directory.Exists(resourcesPath))
+        {
+            Debug.LogError($"Path not found: {resourcesPath}. Please ensure your folders are under Resources/textures.");
+            return;
+        }
+
+        // Get all folders inside "Resources/textures"
+        string[] folders = Directory.GetDirectories(resourcesPath);
+
+        foreach (string folder in folders)
+        {
+            // Extract the folder name (e.g., "Group1")
+            string folderName = Path.GetFileName(folder);
+
+            // Create a new TextureGroup with the folder name as GroupName
+            TextureGroup group = new TextureGroup(folderName);
+
+            // Load all textures from this folder
+            Sprite[] textures = Resources.LoadAll<Sprite>($"stickers/collar");
+            if (textures.Length > 0)
+            {
+                for (int i = 0; i < textures.Length; i++)
+                {
+                    if (i % 2 != 0) // Even index
+                    {
+                        if(group.Texture.Count <=10)
+                        group.Texture.Add(textures[i]);
+                    }
+                }
+
+                //group.Texture.AddRange(textures);
+                Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
+            }
+            else
+            {
+                Debug.LogWarning($"No textures found in folder: {folderName}");
+            }
+
+            
+            Texture[] texture = Resources.LoadAll<Texture>($"textures/{folderName}");
+            if (texture.Length > 0)
+            {
+                for (int i = 0; i < texture.Length; i++)
+                {
+                    // if (i % 2 == 0) // Even index
+                    // {
+                    //     if(group.RawTexture.Count <=20)
+                            group.RawTexture.Add(texture[i]);
+               //     }
+                }
+
+                //group.Texture.AddRange(textures);
+                Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
+            }
+            // Add the group to the list
+            textureGroups.Add(group);
+        }
+    }
+}
+
+
+
+
