@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3749724890232174458}
         m_TargetAssemblyTypeName: CellController, Assembly-CSharp
-        m_MethodName: Clickbtn
+        m_MethodName: Tap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

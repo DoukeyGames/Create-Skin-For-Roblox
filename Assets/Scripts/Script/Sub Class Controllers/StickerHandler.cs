@@ -23,15 +23,21 @@ public class StickerHandler : MonoBehaviour
      }
 
      currentSticker = Instantiate(stickerPrefab, stickerParent); allSticker.Add(currentSticker);
-     currentSticker.GetComponent<UIDragAndSnap>().originalParent = stickerParent;
+     currentSticker.GetComponent<StickerDragger>().originalParent = stickerParent;
  }
 
  public void ClearList()
  {
-     for (int i = 0; i < allSticker.Count; i++)
-     {
-         allSticker[i].GetComponent<UIDragAndSnap>().DeleteSticker();
+     foreach (var t in allSticker)
+     { 
+         if(t == null) continue;
+         var uiDragAndSnap = t.GetComponent<StickerDragger>(); 
+         if (uiDragAndSnap != null) 
+         {
+            uiDragAndSnap.DeleteSticker(); 
+         }
      }
+
      allSticker.Clear();
  }
 }

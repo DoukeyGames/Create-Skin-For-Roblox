@@ -24,7 +24,7 @@ public class ClothController : Singleton<ClothController>
     public Texture CurrentRawTexture;
     public int CurrentCatalog;
     public int CurrentPattern;
-    public List<ThemeController> CatalogBtnList;
+    public List<ItemSelector> CatalogBtnList;
     public Color Selected, UnSelected;
     public void Awake()
     {
@@ -40,7 +40,7 @@ public class ClothController : Singleton<ClothController>
                 GameObject g = Instantiate(m_catalogPrefab, m_catalogParent);
                 int x = i;
                 g.GetComponent<Button>().onClick.AddListener(delegate { ShowCatalogPattern(x); });
-                CatalogBtnList.Add(g.GetComponent<ThemeController>());
+                CatalogBtnList.Add(g.GetComponent<ItemSelector>());
                 Text text= g.transform.GetChild(1).GetComponent<Text>();
                 text.text = textureGroups[i].GroupName;
             }
@@ -61,11 +61,11 @@ public class ClothController : Singleton<ClothController>
            // g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
             Image img = g.transform.GetChild(0).GetComponent<Image>();
             img.sprite = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
-            g.GetComponent<PatternBtn>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
+            g.GetComponent<PatternButton>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
+            g.GetComponent<PatternButton>()._StickertTexture = textureGroups[CurrentCatalog].RawTexture[i];
             PatternList.Add(g);
         }
-        CatalogBtnList[CurrentCatalog].SelectedState(); 
+        CatalogBtnList[CurrentCatalog].Selected(); 
     }
 
    
@@ -94,7 +94,7 @@ public class ClothController : Singleton<ClothController>
     {
         for (int i = 0; i < CatalogBtnList.Count; i++)
         {
-            CatalogBtnList[i].NormalState(); 
+            CatalogBtnList[i].UnSelected(); 
         }
         for (int i = 0; i < PatternList.Count; i++)
         {

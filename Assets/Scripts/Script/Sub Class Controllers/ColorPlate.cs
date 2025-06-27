@@ -12,14 +12,14 @@ public class ColorPlate : MonoBehaviour
     
     public void ApplyTexture()
     {
-        BodyController.Instance.CurrentTexture = CurrentTexture;
-        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
-        BodyController.Instance.CurrentColor = CurrentColor;
+        RobloxBodyHandler.Instance.CurrentTexture = CurrentTexture;
+        RobloxBodyHandler.Instance.CurrentRawTexture = CurrentRawTexture;
+        RobloxBodyHandler.Instance.CurrentColor = CurrentColor;
     }
     public void FinishApplyingTexture()
     {
-        BodyController.Instance.CurrentTexture = null;
-        BodyController.Instance.CurrentRawTexture = null;
-        BodyController.Instance.CurrentColor = Color.clear;
+        RobloxBodyHandler.Instance.CurrentTexture = null;
+        RobloxBodyHandler.Instance.CurrentRawTexture = null;
+        RobloxBodyHandler.Instance.CurrentColor = Color.clear;
     }
 }

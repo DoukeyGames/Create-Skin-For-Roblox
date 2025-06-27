@@ -11,6 +11,6 @@ public class SkinController : MonoBehaviour
     
     public void Clickbtn()
     {
-        MenuPanelController.Instance.ActivePanel(1);
+        ScreenManager.Instance.ActivePanel(1);
     }
 }

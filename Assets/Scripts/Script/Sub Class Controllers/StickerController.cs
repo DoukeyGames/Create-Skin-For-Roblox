@@ -26,7 +26,7 @@ public class StickerController : Singleton<StickerController>
     public int CurrentPattern;
 
    
-    public List<ThemeController> CatalogBtnList;
+    public List<ItemSelector> CatalogBtnList;
     public void Awake()
     {
         ShowCatalog();
@@ -52,8 +52,8 @@ public class StickerController : Singleton<StickerController>
                      
                      Image img = gobj.transform.GetChild(0).GetComponent<Image>();
                      img.sprite = textureGroups[i].Texture[z];
-                     gobj.GetComponent<PatternBtn>()._stickerImg = textureGroups[i].Texture[z];
-                     gobj.GetComponent<PatternBtn>()._StickertTexture = textureGroups[i].RawTexture[z];
+                     gobj.GetComponent<PatternButton>()._stickerImg = textureGroups[i].Texture[z];
+                     gobj.GetComponent<PatternButton>()._StickertTexture = textureGroups[i].RawTexture[z];
                      
                      PatternList.Add(gobj);
                  }
@@ -87,9 +87,9 @@ public class StickerController : Singleton<StickerController>
         CurrentPattern = index;
         CurrentTexture = textureGroups[CurrentCatalog].Texture[CurrentPattern];
         CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
-        BodyController.Instance.CurrentTexture = CurrentTexture;
-        BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
-        BodyController.Instance.CurrentColor = Color.white;
+        RobloxBodyHandler.Instance.CurrentTexture = CurrentTexture;
+        RobloxBodyHandler.Instance.CurrentRawTexture = CurrentRawTexture;
+        RobloxBodyHandler.Instance.CurrentColor = Color.white;
 
     }
 
@@ -98,7 +98,7 @@ public class StickerController : Singleton<StickerController>
     {
         for (int i = 0; i < CatalogBtnList.Count; i++)
         {
-            CatalogBtnList[i].NormalState(); 
+            CatalogBtnList[i].UnSelected(); 
         }
         for (int i = 0; i < PatternList.Count; i++)
         {
