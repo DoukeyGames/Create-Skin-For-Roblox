@@ -43,7 +43,7 @@ public class RenderTextureScaler : MonoBehaviour
     {
         Loading.SetActive(true);
         LoadingCanvas.SetActive(true);
-        Loading3D.SetActive(true);
+        Loading3D.SetActive(false);
 
 #if UNITY_IOS && !UNITY_EDITOR
         Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
@@ -156,9 +156,11 @@ public class RenderTextureScaler : MonoBehaviour
             {
                 ProcessBodyPart(part, bakedTexture);
             }
+        } else if (MainMenu.Instance.CurrentCatalog == 3)
+        {
+            bakedTexture = MainMenu.Instance.FullBodyTexController?.GetToTexture2D();
         }
 
-        // Check if bakeTriggered is true, then call SaveTexture
         if (bakeTriggered)
         {
             SaveTexture(bakedTexture, fullPath);

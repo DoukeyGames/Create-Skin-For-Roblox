@@ -110,7 +110,7 @@ public class ScreenManager : Singleton<ScreenManager>
 
     public void SetTextureDownload()
     {
-        TextureToDownload.texture = FullBodyTexController.CurrentRawTexture;
+        TextureToDownload.texture = FullBodyTexController.GetToTexture2D();
 
         string skinType = "unknown";
         if (MainMenu.Instance != null)

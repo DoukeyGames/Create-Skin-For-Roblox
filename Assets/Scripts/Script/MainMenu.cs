@@ -165,6 +165,9 @@ public class MainMenu : Singleton<MainMenu>
 
     public void ShowOnlyShirt()
     {
+        ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        TShirtControllers.ForEach(i => i.gameObject.SetActive(false));
         ShirtsCellController.ForEach(i => i.gameObject.SetActive(true));
         PantsCellController.ForEach(i => i.gameObject.SetActive(false));
         TShirtControllers.ForEach(i => i.gameObject.SetActive(false));
@@ -200,6 +203,9 @@ public class MainMenu : Singleton<MainMenu>
     
     public void ShowOnlyPant()
     {
+        ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        TShirtControllers.ForEach(i => i.gameObject.SetActive(false));
         ShirtsCellController.ForEach(i => i.gameObject.SetActive(false));
         PantsCellController.ForEach(i => i.gameObject.SetActive(true));
         TShirtControllers.ForEach(i => i.gameObject.SetActive(false));
@@ -208,6 +214,9 @@ public class MainMenu : Singleton<MainMenu>
     
     public void ShowOnlyTshirt()
     {
+        ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+        TShirtControllers.ForEach(i => i.gameObject.SetActive(false));
         ShirtsCellController.ForEach(i => i.gameObject.SetActive(false));
         PantsCellController.ForEach(i => i.gameObject.SetActive(false));
         TShirtControllers.ForEach(i => i.gameObject.SetActive(true));
@@ -226,6 +235,8 @@ public class MainMenu : Singleton<MainMenu>
              {
                  SetModelFullBody(0,x);
                  ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+                 PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+                 TShirtControllers.ForEach(i => i.border.gameObject.SetActive(false));
                  skinController.border.gameObject.SetActive(true);
              });
 
@@ -242,6 +253,8 @@ public class MainMenu : Singleton<MainMenu>
             g.GetComponent<Button>().onClick.AddListener(() =>
             {
                 SetModelFullBody(0,x);
+                ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+                PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
                 TShirtControllers.ForEach(i => i.border.gameObject.SetActive(false));
                 skinController.border.gameObject.SetActive(true);
             });
@@ -260,7 +273,9 @@ public class MainMenu : Singleton<MainMenu>
             g.GetComponent<Button>().onClick.AddListener(() =>
             {
                 SetModelFullBody(1,x);
+                ShirtsCellController.ForEach(i => i.border.gameObject.SetActive(false));
                 PantsCellController.ForEach(i => i.border.gameObject.SetActive(false));
+                TShirtControllers.ForEach(i => i.border.gameObject.SetActive(false));
                 skinController.border.gameObject.SetActive(true);
             });
 
