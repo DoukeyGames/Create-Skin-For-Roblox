@@ -11,6 +11,7 @@ using AppsFlyerSDK;
 
 public class RenderTextureScaler : MonoBehaviour
 {
+    public GameObject LoadingCanvas;
     public GameObject Loading;
     public GameObject Loading3D;
     public RawImage outputTexture;
@@ -41,6 +42,7 @@ public class RenderTextureScaler : MonoBehaviour
     public void BakeTexture()
     {
         Loading.SetActive(true);
+        LoadingCanvas.SetActive(true);
         Loading3D.SetActive(true);
 
 #if UNITY_IOS && !UNITY_EDITOR
@@ -59,6 +61,7 @@ public class RenderTextureScaler : MonoBehaviour
     {
         Loading.SetActive(false);
         Loading3D.SetActive(false);
+        LoadingCanvas.SetActive(true);
 
 #if UNITY_IOS && !UNITY_EDITOR
         Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
@@ -184,6 +187,8 @@ public class RenderTextureScaler : MonoBehaviour
                 part.m_Material.mainTexture = bakedTexture;
             }
         }
+        
+        LoadingCanvas.SetActive(false);
 
         // Save the texture to gallery
         NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(bakedTexture, "Roblox", "RobloxSkin.png", (success, path) => Debug.Log("Media save result: " + success + " " + path));
