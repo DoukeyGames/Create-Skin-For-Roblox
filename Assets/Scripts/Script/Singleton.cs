@@ -9,11 +9,6 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         get { return instance; }
     }
 
-    // public static bool IsInitialized
-    // {
-    //     get { return instance != null; }
-    // }
-
     protected virtual void Awake()
     {
         if (instance != null)

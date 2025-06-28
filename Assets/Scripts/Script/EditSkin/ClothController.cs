@@ -17,7 +17,6 @@ public class ClothController : Singleton<ClothController>
     
     public Transform m_catalogPatternParent;
     
-    //[HideInInspector]
     public List<GameObject> PatternList;
     
     public Sprite CurrentTexture;
@@ -26,7 +25,8 @@ public class ClothController : Singleton<ClothController>
     public int CurrentPattern;
     public List<ItemSelector> CatalogBtnList;
     public Color Selected, UnSelected;
-    public void Awake()
+
+    protected override void Awake()
     {
         ShowCatalog();
     }
@@ -57,8 +57,6 @@ public class ClothController : Singleton<ClothController>
         for (int i = 0; i < textureGroups[CurrentCatalog].Texture.Count; i++)
         {
             GameObject g = Instantiate(m_catalogPatternPrefab, m_catalogPatternParent);
-            int x = i;
-           // g.GetComponent<Button>().onClick.AddListener(delegate { ApplyTexture(x); });
             Image img = g.transform.GetChild(0).GetComponent<Image>();
             img.sprite = textureGroups[CurrentCatalog].Texture[i];
             g.GetComponent<PatternButton>()._stickerImg = textureGroups[CurrentCatalog].Texture[i];
@@ -75,8 +73,6 @@ public class ClothController : Singleton<ClothController>
         CurrentPattern = index;
         CurrentTexture = textureGroups[CurrentCatalog].Texture[CurrentPattern];
         CurrentRawTexture = textureGroups[CurrentCatalog].RawTexture[CurrentPattern];
-      //  BodyController.Instance.CurrentTexture = CurrentTexture;
-       // BodyController.Instance.CurrentRawTexture = CurrentRawTexture;
        SelectedPattern(index);
     }
 
@@ -114,18 +110,14 @@ public class ClothController : Singleton<ClothController>
             return;
         }
 
-        // Get all folders inside "Resources/textures"
         string[] folders = Directory.GetDirectories(resourcesPath);
 
         foreach (string folder in folders)
         {
-            // Extract the folder name (e.g., "Group1")
             string folderName = Path.GetFileName(folder);
 
-            // Create a new TextureGroup with the folder name as GroupName
             TextureGroup group = new TextureGroup(folderName);
 
-            // Load all textures from this folder
             Sprite[] textures = Resources.LoadAll<Sprite>($"stickers/collar");
             if (textures.Length > 0)
             {
@@ -134,11 +126,10 @@ public class ClothController : Singleton<ClothController>
                     if (i % 2 != 0) // Even index
                     {
                         if(group.Texture.Count <=10)
-                        group.Texture.Add(textures[i]);
+                            group.Texture.Add(textures[i]);
                     }
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
             else
@@ -152,17 +143,11 @@ public class ClothController : Singleton<ClothController>
             {
                 for (int i = 0; i < texture.Length; i++)
                 {
-                    // if (i % 2 == 0) // Even index
-                    // {
-                    //     if(group.RawTexture.Count <=20)
-                            group.RawTexture.Add(texture[i]);
-               //     }
+                    group.RawTexture.Add(texture[i]);
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
-            // Add the group to the list
             textureGroups.Add(group);
         }
     }

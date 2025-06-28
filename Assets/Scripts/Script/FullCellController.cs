@@ -13,5 +13,6 @@ public class FullCellController : MonoBehaviour
     public void Clickbtn()
     {
         ScreenManager.Instance.ActivePanel(1);
+        FullBodyTexController.Instance.ApplyTexture(index);
     }
 }

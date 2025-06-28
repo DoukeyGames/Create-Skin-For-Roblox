@@ -11,10 +11,10 @@ using AppsFlyerSDK;
 
 public class RenderTextureScaler : MonoBehaviour
 {
-
     public GameObject Loading;
-    public GameObject LoadingTexture;
+    public GameObject Loading3D;
     public RawImage outputTexture;
+    public RawImage outputTexture3D;
     public string fileName = "TextureBacker.png";
     public string saveFolder = "Assets/";
     public List<BodyPart> shirtBody;
@@ -41,7 +41,7 @@ public class RenderTextureScaler : MonoBehaviour
     public void BakeTexture()
     {
         Loading.SetActive(true);
-        LoadingTexture.SetActive(true);
+        Loading3D.SetActive(true);
 
 #if UNITY_IOS && !UNITY_EDITOR
         Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
@@ -58,7 +58,7 @@ public class RenderTextureScaler : MonoBehaviour
     public void BakeTextureModel()
     {
         Loading.SetActive(false);
-        LoadingTexture.SetActive(true);
+        Loading3D.SetActive(false);
 
 #if UNITY_IOS && !UNITY_EDITOR
         Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
@@ -167,6 +167,7 @@ public class RenderTextureScaler : MonoBehaviour
     {
         bakedTexture.Apply();
         outputTexture.texture = bakedTexture;
+        outputTexture3D.texture = bakedTexture;
 
         // Only assign the texture based on catalog choice
         if (MainMenu.Instance.CurrentCatalog == 0 || MainMenu.Instance.CurrentCatalog == 2)
@@ -183,8 +184,6 @@ public class RenderTextureScaler : MonoBehaviour
                 part.m_Material.mainTexture = bakedTexture;
             }
         }
-
-        LoadingTexture.SetActive(false);
 
         // Save the texture to gallery
         NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(bakedTexture, "Roblox", "RobloxSkin.png", (success, path) => Debug.Log("Media save result: " + success + " " + path));

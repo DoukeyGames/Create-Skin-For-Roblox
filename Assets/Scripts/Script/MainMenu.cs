@@ -367,7 +367,7 @@ public class MainMenu : Singleton<MainMenu>
 
         mRobloxBodyHandler.SetFullBodyTexture(FullBodyTexController.textureGroups[i].RawTexture[index]);
         FullBodyTexController.CurrentRawTexture = FullBodyTexController.textureGroups[i].RawTexture[index];
-        screenManager.Active3d();
+        // screenManager.Active3d();
     }
 
     private int ExtractNumberFromFolderName(string folderName)

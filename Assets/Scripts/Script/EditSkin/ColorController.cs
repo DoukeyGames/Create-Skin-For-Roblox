@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -17,7 +15,6 @@ public class ColorController : Singleton<ColorController>
     
     public Transform m_catalogPatternParent;
     
-    //[HideInInspector]
     public List<GameObject> PatternList;
     
     public Sprite CurrentTexture;
@@ -28,7 +25,7 @@ public class ColorController : Singleton<ColorController>
     public Color Selected, UnSelected;
     public List<ItemSelector> CatalogBtnList;
 
-    public void Awake()
+    protected override void Awake()
     {
         ShowCatalog();
     }
@@ -117,18 +114,14 @@ public class ColorController : Singleton<ColorController>
             return;
         }
 
-        // Get all folders inside "Resources/textures"
         string[] folders = Directory.GetDirectories(resourcesPath);
 
         foreach (string folder in folders)
         {
-            // Extract the folder name (e.g., "Group1")
             string folderName = Path.GetFileName(folder);
 
-            // Create a new TextureGroup with the folder name as GroupName
             TextureGroup group = new TextureGroup(folderName);
 
-            // Load all textures from this folder
             Sprite[] textures = Resources.LoadAll<Sprite>($"textures/{folderName}");
             if (textures.Length > 0)
             {
@@ -137,11 +130,10 @@ public class ColorController : Singleton<ColorController>
                     if (i % 2 != 0) // Even index
                     {
                         if(group.Texture.Count <=10)
-                        group.Texture.Add(textures[i]);
+                            group.Texture.Add(textures[i]);
                     }
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
             else
@@ -153,19 +145,13 @@ public class ColorController : Singleton<ColorController>
             Texture[] texture = Resources.LoadAll<Texture>($"textures/{folderName}");
             if (texture.Length > 0)
             {
-                for (int i = 0; i < texture.Length; i++)
+                foreach (var t in texture)
                 {
-                    // if (i % 2 == 0) // Even index
-                    // {
-                    //     if(group.RawTexture.Count <=20)
-                            group.RawTexture.Add(texture[i]);
-               //     }
+                    group.RawTexture.Add(t);
                 }
 
-                //group.Texture.AddRange(textures);
                 Debug.Log($"Loaded {textures.Length} textures for group: {folderName}");
             }
-            // Add the group to the list
             textureGroups.Add(group);
         }
     }

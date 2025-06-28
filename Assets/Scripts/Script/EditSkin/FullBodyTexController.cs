@@ -10,7 +10,7 @@ public class FullBodyTexController : Singleton<FullBodyTexController>
     public int CurrentCatalog;
     public int CurrentPattern;
 
-    
+
     public void ApplyTexture(int index)
     {
         CurrentPattern = index;

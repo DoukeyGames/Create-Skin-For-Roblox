@@ -310,6 +310,14 @@ public class AIGenerator : MonoBehaviour
         else
         {
             Debug.Log("Token validated: " + www.downloadHandler.text);
+            var response = JsonUtility.FromJson<ValidateResponse>(www.downloadHandler.text);
+            if (response == null || !response.valid)
+            {
+                Debug.Log("Token has expired or is invalid.");
+                isValidated = false;
+                StartCoroutine(RefreshToken());
+                yield break;
+            }
             isValidated = true;
             PlayerPrefs.SetString("access_token", accessToken);
             PlayerPrefs.SetString("refresh_token", refreshToken);
@@ -332,8 +340,10 @@ public class AIGenerator : MonoBehaviour
     IEnumerator RefreshToken()
     {
         string refreshUrl = apiUrl + "device-auth/refresh";
-        refresh_token = PlayerPrefs.GetString("refresh_token", "");
-        string jsonFinal = JsonUtility.ToJson(new { refresh_token = refresh_token });
+        string jsonFinal = JsonUtility.ToJson(new RefreshTokenRequest
+        {
+            refresh_token = PlayerPrefs.GetString("refresh_token", "")
+        });
 
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonFinal);
 
@@ -349,21 +359,31 @@ public class AIGenerator : MonoBehaviour
         {
             Debug.LogError("Refresh failed: " + www.error);
             Debug.LogError("Response: " + www.downloadHandler.text);
+            isValidated = false;
+            AnalyticsManager.Instance.TrackError("device_refresh_err", www.error);
         }
         else
         {
+            Debug.Log("Token refreshed: " + www.downloadHandler.text);
             var response = JsonUtility.FromJson<RegisterResponse>(www.downloadHandler.text);
             if (response != null && !string.IsNullOrEmpty(response.access_token))
             {
                 PlayerPrefs.SetString("access_token", response.access_token);
                 PlayerPrefs.SetString("refresh_token", response.refresh_token);
                 PlayerPrefs.Save();
-                Debug.Log("Token refreshed successfully.");
+                AnalyticsManager.Instance.LogEvent("device_refresh_success",
+                    new Dictionary<string, string>
+                    {
+                        { "access_token", response.access_token },
+                        { "refresh_token", response.refresh_token },
+                        { "device_id", SystemInfo.deviceUniqueIdentifier },
+                        { "device_type", "ios" },
+                        { "device_name", SystemInfo.deviceName },
+                        { "app_version", Application.version },
+                        { "os_version", SystemInfo.operatingSystem },
+                        { "app_bundle_id", appId }
+                    });
                 StartCoroutine(ValidateToken(response.access_token, response.refresh_token));
-            }
-            else
-            {
-                Debug.LogError("Invalid refresh response.");
             }
         }
     }
@@ -426,6 +446,12 @@ public class AIGenerator : MonoBehaviour
 }
 
 [System.Serializable]
+public class RefreshTokenRequest
+{
+    public string refresh_token;
+}
+
+[System.Serializable]
 public class DeviceData
 {
     public string device_id;
@@ -448,6 +474,14 @@ public class RegisterResponse
 {
     public string access_token;
     public string refresh_token;
+}
+
+[System.Serializable]
+public class ValidateResponse
+{
+    public string access_token;
+    public string refresh_token;
+    public bool valid;
 }
 
 [System.Serializable]

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,7 +10,6 @@ public class ScreenManager : Singleton<ScreenManager>
     public SmoothOrbitCam smoothOrbitCam;
     public RenderTextureScaler renderTextureScaler;
     public List<GameObject> Panels;
-    public GameObject LoadingPanel ;
     public RawImage TextureToDownload ;
 
     public GameObject Canvas,Camera,Podium,DownloadWholeTex;
@@ -112,7 +110,6 @@ public class ScreenManager : Singleton<ScreenManager>
 
     public void SetTextureDownload()
     {
-        LoadingPanel.SetActive(true);
         TextureToDownload.texture = FullBodyTexController.CurrentRawTexture;
 
         string skinType = "unknown";
@@ -180,7 +177,6 @@ public class ScreenManager : Singleton<ScreenManager>
     {
         Canvas.SetActive(true);
         Camera.GetComponent<Camera>().enabled = true;
-        LoadingPanel.SetActive(false);
         if (MainMenu.Instance.CurrentCatalog == 3)
         {
             SceneManager.LoadScene(0);
