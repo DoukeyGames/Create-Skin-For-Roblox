@@ -46,9 +46,6 @@ public class RenderTextureScaler : MonoBehaviour
         Loading3D.SetActive(false);
 
 #if UNITY_IOS && !UNITY_EDITOR
-        Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-            Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, "skin_download");
-
         LogSkinDownload("skin_download");
 #endif
 
@@ -64,9 +61,6 @@ public class RenderTextureScaler : MonoBehaviour
         LoadingCanvas.SetActive(true);
 
 #if UNITY_IOS && !UNITY_EDITOR
-        Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-            Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, "skin_download");
-
         LogSkinDownload("skin_download");
 #endif
 

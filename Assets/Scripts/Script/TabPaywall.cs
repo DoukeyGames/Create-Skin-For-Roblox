@@ -121,10 +121,6 @@ public class TabPaywall : TabBase
     private void OnNextButtonClick()
     {
         nextBtn.interactable = false;
-#if UNITY_IOS && !UNITY_EDITOR
-        Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-            Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, eventName);
-#endif
 
         // Track next button click with AppsFlyer
         if (AnalyticsManager.Instance != null)
@@ -137,10 +133,6 @@ public class TabPaywall : TabBase
             int selectedIndex = tabButtons.IndexOf(selectedTab);
             if (selectedIndex == 0)
             {
-#if UNITY_IOS && !UNITY_EDITOR
-                Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-                    Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, "yearly_introduct_offer_access_successful");
-#endif
                 // Track subscription attempt with AppsFlyer
                 if (AnalyticsManager.Instance != null)
                 {
@@ -158,10 +150,6 @@ public class TabPaywall : TabBase
                         new Dictionary<string, string> { { "subscription_type", "free_trial" } });
                 }
                 IAPManager.Instance.BuyFreeTrialSubscription();
-#if UNITY_IOS && !UNITY_EDITOR
-                Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-                    Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, "free_trial_access_successful");
-#endif
             }
             else if (selectedIndex == 2)
             {
@@ -172,10 +160,6 @@ public class TabPaywall : TabBase
                         new Dictionary<string, string> { { "subscription_type", "yearly" } });
                 }
                 IAPManager.Instance.BuyYearlySubscription();
-#if UNITY_IOS && !UNITY_EDITOR
-                Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-                    Firebase.Analytics.FirebaseAnalytics.ParameterGroupID, "yearly_access_successful");
-#endif
             }
         }
     }
